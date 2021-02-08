@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* most asked css question */
+
+/* 1. What is box model?  
+Box model - a box that wraps around every single element and consist of
+- content - the content itself
+- border - the border of the element
+- padding - the space inside the border
+- margin - the space outside the border
+
+box model - default property is content-box the problem with this is if you add a padding on the content it will just add up to the width of the box. In order to rectify this use border box so it behaves just creating a space inside the border.
+*/
+
+.box-1 {
+  width: 300px;
+  background: red;
+  border: 10px solid black;
+  padding: 100px;
+}
+
+/* 2. What is specifity? 
+Is simply a css rule that the browser apply when there is a conflict on the same element. The higher specifity win.
+*note - inline styling has the highest specifity 
+*/
+
+#box-2 {
+  color: green;
+}
+
+.box-2 {
+  color: red;
+}
+
+.box-2 {
+  color: black !important;
+}
+
+/* 3. How to align block element inside another element */
+
+.box-3 {
+  background: blueviolet;
+  width: 400px;
+  height: 400px;
+  position: relative;
+}
+
+.box-4 {
+  background: gray;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* 4. Difference between Static, Relative, Absolute and Fixed Position 
+
+position static - is the default position of the element
+
+position relative - it will not disturb the behaviour of the element and you can adjust the top, right, left, bottom property
+
+position absolute - it will disturb the environment of the element it will refer to its parent position, if you have 3 box and you put position absolute the third box will go up to the position of the second box but still you can adjust the top, right, left, bottom property
+
+position fixed: it will remain on his position even you scroll up or down
+
+*/
+
+.box-5,
+.box-6,
+.box-7 {
+  background: goldenrod;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+}
+
+.box-5 {
+  position: fixed;
+}
+
+/* Difference between visibility: hidden and display: none and visibility: hidden
+
+visibility hidden: is rendered in DOM element and it is hidden, there will be a space or gap on the next element but the display: none is not rendered in the DOM so there is no space or gap to the next element
+*/
+
+.box-8,
+.box-9 {
+  position: relative;
+  left: 50%;
+  background: burlywood;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+}
+
+.box-8 {
+  display: none;
+}
+
+.box-9 {
+  visibility: hidden;
+}
+
+/* 6. What is shadow DOM 
+allows hidden DOM trees to be attached to elements in the regular DOM tree
+*/
+
+/* 7. How to built triangle */
+.tri {
+  position: relative;
+  left: 50%;
+  height: 0;
+  width: 0;
+
+  border-top: 100px solid transparent;
+  border-right: 100px solid transparent;
+  border-bottom: 100px solid blue;
+  border-left: 100px solid transparent;
+}
+
+/* 8. What is pseudo elements - is a keyword added to a selector that lets you style a specific part of the selected element(s)*/
+
+.pseudo-element,
+.data-attribute {
+  text-align: center;
+}
+
+.pseudo-element:hover::after {
+  content: 'Sample :hover, ::after, ::before';
+}
+
+/* 9. Data-Attribute - store extra information on the element so we can access it in other way. */
+.data-attribute:hover::after {
+  display: inline-block;
+  content: attr(data-name);
+}

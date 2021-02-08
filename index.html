@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="box-1">
+      <h1>Box Model</h1>
+    </div>
+
+    <div class="box-2" id="box-2">
+      <h1 style="color: yellow">Specifity</h1>
+    </div>
+
+    <div class="box-3">
+      <div class="box-4">
+        <h1>Align block element inside another element</h1>
+      </div>
+    </div>
+
+    <div class="box-5">
+      <p>position</p>
+    </div>
+    <div class="box-6">
+      <p>box-6</p>
+    </div>
+    <div class="box-7">
+      <p>box-7</p>
+    </div>
+
+    <div class="box-8"></div>
+    <div class="box-9"></div>
+
+    <h3 style="text-align: center">Shadow DOM</h3>
+    <div id="shadow-host">
+      <span id="child" style="position: relative; left: 30%"
+        >This is not a part of the DOM</span
+      >
+    </div>
+
+    <template id="news-widget">
+      <h3>News Widget dsgsdgsdgsd</h3>
+    </template>
+
+    <div class="tri"></div>
+
+    <div class="pseudo-element">
+      <p>Pseudo</p>
+    </div>
+
+    <div class="data-attribute" data-name="Data Attribute">
+      <p>Data</p>
+    </div>
+
+    <script>
+      let shadowHost = document.getElementById('shadow-host');
+      let shadowParent = shadowHost.attachShadow({ mode: 'open' });
+      let shadowChild = document.createElement('span');
+
+      shadowChild.innerHTML = document.getElementById('news-widget').innerHTML;
+      shadowParent.appendChild(shadowChild);
+
+      test2 = shadowHost.shadowRoot;
+
+      if (test2 !== null) {
+        let test = shadowParent.querySelector('h3');
+
+        test.style.textAlign = 'center';
+
+        test.style.color = 'green';
+      }
+    </script>
+  </body>
+</html>
